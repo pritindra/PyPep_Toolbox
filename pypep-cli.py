@@ -163,7 +163,7 @@ def main():
             patt = input("Enter the pattern::")
             ph = input("Enter the pH value::")
             X = PepTool(patt)
-            print(X.charge_at_pH(ph))
+            print(X.charge_at_pH(float(ph)))
 
         elif main_sel == 6:
             patt = input("Enter the pattern::")

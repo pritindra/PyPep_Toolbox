@@ -9,15 +9,17 @@ class Win1:
         self.master.geometry("400x400")
         # self.frame = tk.Frame(self.master)
         self.master.title("Menu")
+        self.master.config(bg="gray85")
 
         self.butnew("Permutations", "2", Win2)
         self.butnew("Operational", "3", Win3)
         self.butnew("Amino Acid Count", "4", Win4)
-        self.B = tk.Button(self.master,text="Exit",command=self.stop,bg="red3",activebackground="red4").pack()
+        self.B = tk.Button(self.master,text="Exit",command=self.stop,bg="red3",activebackground="red4",width=30).pack()
         # self.frame.pack()
 
     def butnew(self, text, number, _class):
-        tk.Button(self.master, text = text, command= lambda: self.new_window(number, _class)).pack()
+        tk.Button(self.master, text = text, command= lambda: self.new_window(number, _class),
+        height=5,width=30,bg="LightCyan2",activebackground="Cyan").pack()
 
     def new_window(self, number, _class):
         self.new = tk.Toplevel(self.master)
@@ -32,7 +34,7 @@ class Win2:
         # self.master.geometry("400x400+200+200")
         # self.frame = tk.Frame(self.master)
         self.master.title("Permutations")
-        self.master.config(bg="gray85")
+        self.master.config(bg="light steel blue")
 
         self.pattern = tk.StringVar()
         self.inputs = tk.StringVar()
@@ -49,13 +51,20 @@ class Win2:
         self.e2=tk.Entry(self.master,textvariable=self.inputs)
         self.e2.place(x=120,y=30)
 
-        self.b1=tk.Button(self.master,text="Enter",command=self.sequence,width=30,bg="light slate blue",activebackground="slate blue")
-        self.b1.grid(row=11,column=0,padx=10)
-        self.b3=tk.Button(self.master,text="output",command=self.outputs,width=30,bg="light slate blue",activebackground="slate blue")
+        self.b1=tk.Button(self.master,text="Sequencer",command=self.sequence,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
+        self.b1.grid(row=10,column=0,padx=10)
+
+        self.b4=tk.Button(self.master,text="X Sequencer",command=self.Xsequence,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
+        self.b4.grid(row=11,column=0,padx=10)
+
+        self.b3=tk.Button(self.master,text="output",command=self.outputs,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
         self.b3.grid(row=12,column=0,padx=10)
 
         self.b2=tk.Button(self.master,text="Exit",command=self.close_window,width=30,bg="red3",activebackground="red")
         self.b2.grid(row=13,column=0,padx=10)
+
+        self.b=tk.Button(self.master,text="Clear",command=self.clear,width=30,bg="red3",activebackground="red")
+        self.b.grid(row=14,column=0,padx=10)
 
         self.t1=tk.Text(self.master,width=80,height=20)
         self.t1.grid(row=0,column=1)
@@ -94,11 +103,45 @@ class Win2:
             self.t1.insert("end",str(z[i]) + "\n")
             # labels[i].place(x=20,y=30+(20*i))
 
+    def Xsequence(self):
+        patt = self.pattern.get()
+        inp = self.inputs.get()
+
+        def split(l):
+            return list(l)
+
+        patt_list = split(patt)
+        inp_list = split(inp)
+
+
+        temp = []
+        z = []
+        self.t1.insert("end","Sequence - Molecular Weight - Isoelectric point\n")
+        for p in range(len(patt_list)):
+
+            for s in range(len(patt_list)):
+                temp.insert(s,patt_list[s])
+
+            for q in range(len(inp_list)):
+
+                st = ""
+                temp[p] = inp_list[q]
+                z1 = st.join(temp)
+                z.append(z1)
+            del temp[:]
+        self.output = (p+1)*(q+1)
+        for i in range(len(z)):
+            X = PepTool(str(z[i]))
+            self.t1.insert("end",str(z[i]) + "--->" + str(X.molecular_weight()) + "--->" + str(X.isoelectric_point()) + "\n")
+
     def outputs(self):
         self.t1.insert("end", "No. of outputs:: " + str(self.output))
 
     def close_window(self):
         self.master.destroy()
+
+    def clear(self):
+        self.t1.delete('1.0',"end")
 
 class Win3:
     def __init__(self, master, number):
@@ -130,20 +173,23 @@ class Win3:
         self.e3=tk.Entry(self.master,textvariable=self.intother)
         self.e3.place(x=120,y=60)
 
-        self.b1=tk.Button(self.master,text="Add",command=self.add,width=30,bg="light slate blue",activebackground="slate blue")
+        self.b1=tk.Button(self.master,text="Add",command=self.add,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
         self.b1.grid(row=8,column=0,padx=10)
 
-        self.b2=tk.Button(self.master,text="Add to left",command=self.ladd,width=30,bg="light slate blue",activebackground="slate blue")
+        self.b2=tk.Button(self.master,text="Add to left",command=self.ladd,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
         self.b2.grid(row=9,column=0,padx=10)
 
-        self.b1=tk.Button(self.master,text="Multiply",command=self.mul,width=30,bg="light slate blue",activebackground="slate blue")
-        self.b1.grid(row=10,column=0,padx=10)
+        self.b4=tk.Button(self.master,text="Multiply",command=self.mul,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
+        self.b4.grid(row=10,column=0,padx=10)
 
-        self.b1=tk.Button(self.master,text="Complement",command=self.complement,width=30,bg="light slate blue",activebackground="slate blue")
-        self.b1.grid(row=11,column=0,padx=10)
+        self.b3=tk.Button(self.master,text="Complement",command=self.complement,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
+        self.b3.grid(row=11,column=0,padx=10)
 
         self.b=tk.Button(self.master,text="Exit",command=self.close_window,width=30,bg="red3",activebackground="red")
         self.b.grid(row=12,column=0,padx=10)
+
+        self.c=tk.Button(self.master,text="Clear",command=self.clear,width=30,bg="red3",activebackground="red")
+        self.c.grid(row=13,column=0,padx=10)
 
         self.t1=tk.Text(self.master,width=80,height=20)
         self.t1.grid(row=0,column=1)
@@ -166,6 +212,9 @@ class Win3:
 
     def close_window(self):
         self.master.destroy()
+
+    def clear(self):
+        self.t1.delete('1.0',"end")
 
 class Win4:
     def __init__(self, master, number):
@@ -197,20 +246,23 @@ class Win4:
         self.e3=tk.Entry(self.master,textvariable=self.phVal)
         self.e3.place(x=120,y=60)
 
-        self.b1=tk.Button(self.master,text="Calculate",command=self.AminoCount,width=30,bg="light slate blue",activebackground="slate blue")
+        self.b1=tk.Button(self.master,text="Calculate",command=self.AminoCount,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
         self.b1.grid(row=8,column=0,padx=10)
 
-        self.b2=tk.Button(self.master,text="Amino Count",command=self.AminoCountSp,width=30,bg="light slate blue",activebackground="slate blue")
+        self.b2=tk.Button(self.master,text="Amino Count",command=self.AminoCountSp,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
         self.b2.grid(row=9,column=0,padx=10)
 
-        self.b1=tk.Button(self.master,text="Isoelectric Point",command=self.IsoPoint,width=30,bg="light slate blue",activebackground="slate blue")
+        self.b1=tk.Button(self.master,text="Isoelectric Point",command=self.IsoPoint,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
         self.b1.grid(row=10,column=0,padx=10)
 
-        self.b1=tk.Button(self.master,text="Chage at pH",command=self.pHcharge,width=30,bg="light slate blue",activebackground="slate blue")
+        self.b1=tk.Button(self.master,text="Chage at pH",command=self.pHcharge,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
         self.b1.grid(row=11,column=0,padx=10)
 
         self.b=tk.Button(self.master,text="Exit",command=self.close_window,width=30,bg="red3",activebackground="red")
         self.b.grid(row=12,column=0,padx=10)
+
+        self.c=tk.Button(self.master,text="Clear",command=self.clear,width=30,bg="red3",activebackground="red")
+        self.c.grid(row=13,column=0,padx=10)
 
         self.t1=tk.Text(self.master,width=80,height=20)
         self.t1.grid(row=0,column=1)
@@ -235,6 +287,9 @@ class Win4:
 
     def close_window(self):
         self.master.destroy()
+
+    def clear(self):
+        self.t1.delete('1.0',"end")
 
 
 root = tk.Tk()
