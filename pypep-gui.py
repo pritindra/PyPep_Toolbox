@@ -174,22 +174,34 @@ class Win3:
         self.e3.place(x=120,y=60)
 
         self.b1=tk.Button(self.master,text="Add",command=self.add,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
-        self.b1.grid(row=8,column=0,padx=10)
+        self.b1.grid(row=1,column=0,padx=10)
 
         self.b2=tk.Button(self.master,text="Add to left",command=self.ladd,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
-        self.b2.grid(row=9,column=0,padx=10)
+        self.b2.grid(row=2,column=0,padx=10)
 
         self.b4=tk.Button(self.master,text="Multiply",command=self.mul,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
-        self.b4.grid(row=10,column=0,padx=10)
+        self.b4.grid(row=3,column=0,padx=10)
 
         self.b3=tk.Button(self.master,text="Complement",command=self.complement,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
-        self.b3.grid(row=11,column=0,padx=10)
+        self.b3.grid(row=4,column=0,padx=10)
+
+        self.B1=tk.Button(self.master,text="Overlapping count",command=self.Overlap,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
+        self.B1.grid(row=1,column=1,padx=10)
+
+        self.B2=tk.Button(self.master,text="Non-overlapping count",command=self.Nonoverlap,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
+        self.B2.grid(row=2,column=1,padx=10)
+
+        self.B3=tk.Button(self.master,text="Find",command=self.Find,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
+        self.B3.grid(row=3,column=1,padx=10)
+
+        self.B3=tk.Button(self.master,text="Contains?",command=self.Contains,width=30,bg="OliveDrab2",activebackground="OliveDrab4")
+        self.B3.grid(row=4,column=1,padx=10)
 
         self.b=tk.Button(self.master,text="Exit",command=self.close_window,width=30,bg="red3",activebackground="red")
-        self.b.grid(row=12,column=0,padx=10)
+        self.b.grid(row=5,column=0,padx=10)
 
         self.c=tk.Button(self.master,text="Clear",command=self.clear,width=30,bg="red3",activebackground="red")
-        self.c.grid(row=13,column=0,padx=10)
+        self.c.grid(row=5,column=1,padx=10)
 
         self.t1=tk.Text(self.master,width=80,height=20)
         self.t1.grid(row=0,column=1)
@@ -209,6 +221,29 @@ class Win3:
     def complement(self):
         complement = Seq(self.pattern.get()).complement()
         self.t1.insert("end","\n" + "Complement:: " + complement)
+
+    def Overlap(self):
+        patt = Seq(self.pattern.get())
+        sub = str(self.other.get())
+        self.t1.insert("end","\n" + "Overlapping Count of " + sub + "::" + str(patt.count_overlap(sub)))
+
+    def Nonoverlap(self):
+        patt = Seq(self.pattern.get())
+        sub = str(self.other.get())
+        self.t1.insert("end","\n" + "Non-overlapping Count of " + sub + "::" + str(patt.count(sub)))
+
+    def Find(self):
+        patt = Seq(self.pattern.get())
+        sub = str(self.other.get())
+        self.t1.insert("end","\n" + "Result of search " + sub + "::" + str(patt.find(sub)))
+
+    def Contains(self):
+        patt = Seq(self.pattern.get())
+        sub = str(self.other.get())
+        if sub in patt:
+            self.t1.insert("end","\n" + "Result of search " + sub + "::" + "True")
+        else:
+            self.t1.insert("end","\n" + "Result of search " + sub + "::" + "False")
 
     def close_window(self):
         self.master.destroy()
