@@ -8,8 +8,8 @@ def main():
     main_menu_items = ["Peptide sequencer","Operation Menu", "Molecular Weight", "Amino acid count",
     "Isoelectric point","Charge at given pH","Molar Extinction Coefficient","Quit"]
     main_menu_cursor = "> "
-    main_menu_cursor_style = ("fg_red", "bold")
-    main_menu_style = ("bg_red", "fg_yellow")
+    main_menu_cursor_style = ("fg_green", "bold")
+    main_menu_style = ("bg_gray", "fg_green", "italics")
     main_menu_exit = False
 
     main_menu = TerminalMenu(menu_entries=main_menu_items,
@@ -93,7 +93,7 @@ def main():
                 elif oper_sel == 1:
                     patt = input("Enter the sequence::")
                     other = input("Enter the integer::")
-                    print("Multiplied:: " + Seq(patt) * other)
+                    print("Multiplied:: " + Seq(patt) * int(other))
 
                 elif oper_sel == 2:
                     patt = input("Enter the sequence::")
@@ -105,9 +105,9 @@ def main():
                     seq1 = Seq(patt)
                     seq2 = Seq(other)
                     if seq1 == seq2:
-                        return True
+                        print("True")
                     else:
-                        return False
+                        print("False")
 
                 elif oper_sel == 4:
                     patt = input("Enter the sequence::")
