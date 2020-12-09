@@ -5,8 +5,8 @@ from Bio.Seq import Seq
 
 def main():
     main_menu_title = "  PyPep Toolbox\n"
-    main_menu_items = ["Peptide sequencer","Operation Menu", "Molecular Weight", "Amino acid count",
-    "Isoelectric point","Charge at given pH","Molar Extinction Coefficient","Quit"]
+    main_menu_items = ["[p] Peptide sequencer","[o] Operation Menu", "Molecular Weight", "Amino acid count",
+    "Isoelectric point","Charge at given pH","Molar Extinction Coefficient","[q] Quit"]
     main_menu_cursor = "> "
     main_menu_cursor_style = ("fg_green", "bold")
     main_menu_style = ("bg_gray", "fg_green", "italics")
@@ -21,7 +21,7 @@ def main():
                              clear_screen=True)
 
     edit_menu_title = "  Menu 2\n"
-    edit_menu_items = ["Permutations", "amino_count", "get_amino_percent", "Back to Main Menu"]
+    edit_menu_items = ["[p] Permutations", "amino_count", "get_amino_percent", "[q] Back to Main Menu"]
     edit_menu_back = False
     edit_menu = TerminalMenu(edit_menu_items,
                              edit_menu_title,
@@ -32,8 +32,8 @@ def main():
                              clear_screen=True)
 
     oper_menu_title = "  Operation Menu\n"
-    oper_menu_items = ["Add", "Multiply by integer", "Complement", "Compare", "Hash", "Add Sequence on left",
-    "Non-overlapping count", "overlapping count", "Contains", "Find", "Back to Main Menu"]
+    oper_menu_items = ["[a]Add", "[m]Multiply by integer", "[c]Complement", "[C]Compare", "Hash", "[l]Add Sequence on left",
+    "Non-overlapping count", "overlapping count", "Contains", "Find", "[q] Back to Main Menu"]
     oper_menu_back = False
     oper_menu = TerminalMenu(oper_menu_items,
                              oper_menu_title,
