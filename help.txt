@@ -1,0 +1,20 @@
+Welcome to pypep Toolbox!!
+
+PyPep command line interface
+
+NAME
+       pypep-cli.py - command-line interface
+
+SYNOPSIS
+       [p]peptide sequencer -> [p] permutations, amino_count, get_amino_percent
+       [o]operation menu -> [a]Add, [m]Multiply by integer, [c]complement,
+                            [C]Compare, Hash, [l]Add sequence on left, Non-overlapping count,
+                            Overlapping count, Contains, Find
+        Molecular weight, Amino acid count, isoelectric_point, Charge at given pH,
+        Molar Extinction Coefficient
+
+DESCRIPTION
+       pypep-cli provides a high-level commandline interface for the peptide
+       sequence management system. It is intended as an end user interface and
+       enables some options better suited for interactive usage by default compa
+       red to more specialized laboratory tools like spectrophotometer and others.
