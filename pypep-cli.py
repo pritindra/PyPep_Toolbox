@@ -2,11 +2,12 @@ import sys
 from simple_term_menu import TerminalMenu
 from PepTool import *
 from Bio.Seq import Seq
+import os
 
 def main():
     main_menu_title = "  PyPep Toolbox\n"
     main_menu_items = ["[p] Peptide sequencer","[o] Operation Menu", "Molecular Weight", "Amino acid count",
-    "Isoelectric point","Charge at given pH","Molar Extinction Coefficient","[q] Quit"]
+    "Isoelectric point","Charge at given pH","Molar Extinction Coefficient","[q] Quit","[h] Help"]
     main_menu_cursor = "> "
     main_menu_cursor_style = ("fg_green", "bold")
     main_menu_style = ("bg_gray", "fg_green", "italics")
@@ -173,6 +174,9 @@ def main():
         elif main_sel == 7:
             main_menu_exit = True
             print("Quit Selected")
+
+        elif main_sel == 8:
+            os.system("cat help.txt")
 
 
 if __name__ == "__main__":
