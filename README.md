@@ -2,7 +2,6 @@
 
 # Technologies used
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![Biopython](https://github.com/biopython/biopython/raw/master/Doc/images/biopython_logo_m.png )](http://www.biopython.org/)
 [![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
 -----
 **PyPep toolbox** includes the basic yet important sequence tools that help the researchers to formulate within stipulated time.It includes operations like-
