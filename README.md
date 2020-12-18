@@ -2,7 +2,7 @@
 
 # Technologies used
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
+![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
 -----
 **PyPep toolbox** includes the basic yet important sequence tools that help the researchers to formulate within stipulated time.It includes operations like-
 - addition
@@ -18,7 +18,25 @@ There are two parts - **CLI toolbox and GUI toolbox.**
 - For a decent gui experience, pypep-gui can be used for easy understanding and handling of the data. It is intended as an end user interface and enables some options better suited for interactive usage by default compared to more specialized laboratory tools like spectrophotometer and others.
 
 #### Download the files and see the instructions (demo) here: [PyPep webpage](https://suvankarpioneer.github.io/eurymedons/)
+-----
+# Installation - 
+The `requirements.txt` file contains all the required libraries to be installed.
 
+Use `pip install -r requirements.txt` to install the required dependencies(Or pip3).
+
+The python version is to be more than 3.0.0
+
+Extra apps needed are -
+  * Tkinter (installing ttk)
+  * simple_term_menu
+  
+ Use `pip install libname` to install the apps.
+ 
+ Steps after extracting the zip file - 
+  * Go to the project folder and start with the development environment with conda or venv.
+  * Run `python pypep-cli.py` for using the CLI.
+  * Run `python pypep-gui.py` -> for running the GUI app.
+-----
 Features of PyPep GUI -
 - [Sequencer] - Outputs the permutations of the sequences with given amino
 	                    inputs.
