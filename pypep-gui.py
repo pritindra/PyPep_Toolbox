@@ -11,7 +11,7 @@ class Win1:
         self.master.title("Menu")
         self.master.config(bg="gray26")
 
-        self.butnew("Permutations", "2", Win2)
+        self.butnew("Sequencer", "2", Win2)
         self.butnew("Operational", "3", Win3)
         self.butnew("Amino Acid Count", "4", Win4)
         self.B = tk.Button(self.master,text="Exit",command=self.stop,relief="raised",bd=6,bg="red3",activebackground="red4",width=30).pack()
@@ -33,7 +33,7 @@ class Win2:
         self.master = master
         # self.master.geometry("400x400+200+200")
         # self.frame = tk.Frame(self.master)
-        self.master.title("Permutations")
+        self.master.title("Sequencer")
         self.master.config(bg="light steel blue")
 
         self.pattern = tk.StringVar()
@@ -148,7 +148,7 @@ class Win3:
         self.master = master
         # self.master.geometry("400x400+200+200")
         # self.frame = tk.Frame(self.master)
-        self.master.title("Permutations")
+        self.master.title("Basic Operations")
         self.master.config(bg="gray85")
 
         self.pattern = tk.StringVar()
