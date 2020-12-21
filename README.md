@@ -1,6 +1,5 @@
 # ***PyPep_Toolbox***
 
-# Technologies used
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 ![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
 -----
@@ -26,9 +25,10 @@ Use `pip install -r requirements.txt` to install the required dependencies(Or pi
 
 The python version is to be more than 3.0.0
 
-Extra apps needed are -
+Extra modules needed are -
   * Tkinter (installing ttk)
   * simple_term_menu
+  * biopython
   
  Use `pip install libname` to install the apps.
  
