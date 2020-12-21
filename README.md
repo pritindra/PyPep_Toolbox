@@ -37,7 +37,12 @@ Extra modules needed are -
   * Run `python pypep-cli.py` for using the CLI.
   * Run `python pypep-gui.py` -> for running the GUI app.
 -----
-Features of PyPep GUI -
+**Features of PyPep GUI** -
+An example for a quick demo: In the pattern field input a sequence(LKHAKHAKGTADAL).
+In the input fields place a required subsequence or amino acid(AKH or A).
+In the integer field put any integer to get multiplied with the sequence(say 4)
+Then click the buttons to get required outputs.
+
 - [Sequencer] - Outputs the permutations of the sequences with given amino
 	                    inputs.
 - [Amino count] - Returns the number of amino acids. In case a given amino
@@ -57,3 +62,4 @@ Features of PyPep GUI -
 - [Charge at given pH] - returns the charge of the sequence at input pH.
 - [Molar Extinction Coefficient] - returns the molar_extinction_coefficient
 	                          of the sequence.
+- Also the cli toolset exports the output data to a text file if needed.
